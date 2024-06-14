@@ -17,14 +17,13 @@ from ootd.inference_ootd_hd import OOTDiffusionHD
 from ootd.inference_ootd_dc import OOTDiffusionDC
 
 
-openpose_model_hd = OpenPose(0)
-parsing_model_hd = Parsing(0)
-ootd_model_hd = OOTDiffusionHD(0)
+# openpose_model_hd = OpenPose(0)
+# parsing_model_hd = Parsing(0)
+# ootd_model_hd = OOTDiffusionHD(0)
 
-openpose_model_dc = OpenPose(1)
-parsing_model_dc = Parsing(1)
-ootd_model_dc = OOTDiffusionDC(1)
-
+openpose_model_dc = OpenPose(0)
+parsing_model_dc = Parsing(0)
+ootd_model_dc = OOTDiffusionDC(0)
 
 category_dict = ['upperbody', 'lowerbody', 'dress']
 category_dict_utils = ['upper_body', 'lower_body', 'dresses']
