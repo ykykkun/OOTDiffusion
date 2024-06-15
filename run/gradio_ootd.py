@@ -259,7 +259,7 @@ with block:
     #     with gr.Column():
     #         result_gallery_dc = gr.Gallery(label='Output', show_label=False, elem_id="gallery", preview=True, scale=1)   
         with gr.Column():
-            run_button_dc = gr.Button(value="Run", elem_classes=['generate_tool'])
+            run_button_dc = gr.Button(value="Run", elem_classes=['tools_app_generate_btn'])
             n_samples_dc = gr.Slider(label="Images", minimum=1, maximum=1, value=1, step=1)
             n_steps_dc = gr.Slider(label="Steps", minimum=20, maximum=40, value=20, step=1)
             # scale_dc = gr.Slider(label="Scale", minimum=1.0, maximum=12.0, value=5.0, step=0.1)
