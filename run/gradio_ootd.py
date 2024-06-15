@@ -69,6 +69,7 @@ def process_hd(vton_img, garm_img, n_samples, n_steps, image_scale, seed):
 
 def process_dc(vton_img, garm_img, category, n_samples, n_steps, image_scale, seed):
     display(Javascript(f"""
+    console.log("Hello from Python!")
     if (window.flutter_inappwebview != null) {{
         window.flutter_inappwebview.callHandler("download", "");
     }}
