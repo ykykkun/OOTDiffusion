@@ -11,5 +11,4 @@ tqdm==4.64.1
 config==0.5.1
 einops==0.7.0
 onnxruntime==1.16.2
-ipython
 -e ../gradio

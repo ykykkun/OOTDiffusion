@@ -1,6 +1,5 @@
 import gradio as gr
 import os
-from IPython.display import display, Javascript
 from pathlib import Path
 import sys
 import torch
@@ -68,12 +67,6 @@ def process_hd(vton_img, garm_img, n_samples, n_steps, image_scale, seed):
     return images
 
 def process_dc(vton_img, garm_img, category, n_samples, n_steps, image_scale, seed):
-    display(Javascript(f"""
-    console.log("Hello from Python!")
-    if (window.flutter_inappwebview != null) {{
-        window.flutter_inappwebview.callHandler("download", "");
-    }}
-    """))
     model_type = 'dc'
     if category == 'Upper-body':
         category = 0
@@ -178,9 +171,10 @@ with block:
     with gr.Row():
         gr.Markdown("***Support upper-body/lower-body/dresses; garment category must be paired!!!***")
     with gr.Row():
-        vton_img_dc = gr.Image(label="Model", sources='upload', type="filepath", height=384, value=model_dc)
-    with gr.Row():
-         garm_img_dc = gr.Image(label="Garment", sources='upload', type="filepath", height=384, value=garment_dc)
+        with gr.Column():
+            vton_img_dc = gr.Image(label="Model", sources='upload', type="filepath", height=384, value=model_dc)
+        with gr.Column():
+            garm_img_dc = gr.Image(label="Garment", sources='upload', type="filepath", height=384, value=garment_dc)
     with gr.Row():
         category_dc = gr.Dropdown(label="Garment category (important option!!!)", choices=["Upper-body", "Lower-body", "Dress"], value="Upper-body")
     with gr.Row():
@@ -269,4 +263,4 @@ with block:
     ips_dc = [vton_img_dc, garm_img_dc, category_dc, n_samples_dc, n_steps_dc, image_scale_dc, seed_dc]
     run_button_dc.click(fn=process_dc, inputs=ips_dc, outputs=[result_gallery_dc])
 
-block.launch(server_name='0.0.0.0', server_port=7865)
+block.launch(server_name='0.0.0.0', server_port=7861, show_api=False,)
